@@ -4,7 +4,11 @@
       "Bash(npm run build:*)",
       "Bash(git init:*)",
       "Bash(xcode-select:*)",
-      "Bash(sudo xcode-select:*)"
+      "Bash(sudo xcode-select:*)",
+      "Bash(npm install:*)",
+      "Bash(git add:*)",
+      "Bash(nvm ls:*)",
+      "Bash(brew:*)"
     ]
   }
 }

@@ -38,45 +38,34 @@ const Waitlist: React.FC = () => {
 				throw supabaseError;
 			}
 
-			// Add to Beehiv
-			const beehivApiKey = process.env.REACT_APP_BEEHIV_API_KEY;
-			const beehivPublicationId = process.env.REACT_APP_BEEHIV_PUBLICATION_ID;
+			// Add to Beehiv via serverless function
+			try {
+				const beehivResponse = await fetch("/api/subscribe", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						email: email.toLowerCase().trim(),
+					}),
+				});
 
-			if (beehivApiKey && beehivPublicationId) {
-				try {
-					const beehivResponse = await fetch(
-						`https://api.beehiiv.com/v2/publications/${beehivPublicationId}/subscriptions`,
-						{
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-								Authorization: `Bearer ${beehivApiKey}`,
-							},
-							body: JSON.stringify({
-								email: email.toLowerCase().trim(),
-								reactivate_existing: true,
-								send_welcome_email: true,
-								utm_source: "waitlist",
-								utm_medium: "website",
-							}),
-						}
-					);
-
-					if (beehivResponse.ok) {
-						const beehivData = await beehivResponse.json();
-						// Update Supabase with Beehiv subscriber ID
-						await supabase
-							.from("waitlist")
-							.update({
-								synced_to_beehiv: true,
-								beehiv_subscriber_id: beehivData.data?.id,
-							})
-							.eq("email", email.toLowerCase().trim());
-					}
-				} catch (beehivError) {
-					console.error("Beehiv sync failed:", beehivError);
-					// Continue even if Beehiv fails - email is saved in Supabase
+				if (beehivResponse.ok) {
+					const beehivData = await beehivResponse.json();
+					// Update Supabase with Beehiv subscriber ID
+					await supabase
+						.from("waitlist")
+						.update({
+							synced_to_beehiv: true,
+							beehiv_subscriber_id: beehivData.subscriberId,
+						})
+						.eq("email", email.toLowerCase().trim());
+				} else {
+					console.error("Beehiv sync failed:", await beehivResponse.json());
 				}
+			} catch (beehivError) {
+				console.error("Beehiv sync failed:", beehivError);
+				// Continue even if Beehiv fails - email is saved in Supabase
 			}
 
 			setStatus("success");
@@ -143,7 +132,7 @@ const Waitlist: React.FC = () => {
 							<button
 								type="submit"
 								disabled={status === "loading"}
-								className="px-6 py-3 font-bold text-white transition-colors rounded-lg bg-primary hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+								className="px-6 py-3 font-bold text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange focus:ring-2 focus:bg-accent-orange focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
 							>
 								{status === "loading" ? "Joining..." : "Join Waitlist"}
 							</button>
