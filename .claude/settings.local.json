@@ -8,7 +8,11 @@
       "Bash(npm install:*)",
       "Bash(git add:*)",
       "Bash(nvm ls:*)",
-      "Bash(brew:*)"
+      "Bash(brew:*)",
+      "Bash(nvm install:*)",
+      "Bash(vercel projects:*)",
+      "Bash(node --version:*)",
+      "Bash(vercel whoami:*)"
     ]
   }
 }

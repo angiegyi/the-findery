@@ -2,6 +2,7 @@
   "name": "the-findery-spike",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@supabase/supabase-js": "^2.76.0",
     "@testing-library/dom": "^10.4.1",
