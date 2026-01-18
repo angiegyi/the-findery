@@ -10,6 +10,7 @@ const Discover: React.FC = () => {
 
   useEffect(() => {
     checkUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -68,15 +69,15 @@ const Discover: React.FC = () => {
             <div className="flex items-center">
               <h1 className="text-2xl font-bold text-gray-900">🇦🇺 Findery</h1>
               <nav className="ml-10 space-x-4">
-                <a href="#" className="text-gray-900 font-medium border-b-2 border-blue-600">
+                <button className="text-gray-900 font-medium border-b-2 border-blue-600">
                   Discover
-                </a>
-                <a href="#" className="text-gray-500 hover:text-gray-900">
+                </button>
+                <button className="text-gray-500 hover:text-gray-900">
                   Boards
-                </a>
-                <a href="#" className="text-gray-500 hover:text-gray-900">
+                </button>
+                <button className="text-gray-500 hover:text-gray-900">
                   Following
-                </a>
+                </button>
               </nav>
             </div>
             <button
