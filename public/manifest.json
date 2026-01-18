@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "The Findery",
+  "name": "The Findery - Discover Australia's Best Emerging Fashion Brands",
+  "description": "Discover Australia's best emerging fashion brands. Join our waitlist to be the first to know when we launch.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#F59E0B",
+  "background_color": "#FEF3C7"
 }
