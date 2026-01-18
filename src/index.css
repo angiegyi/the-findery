@@ -1,3 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #6f0000;
+  --color-primary-dark: #550000;
+  --color-primary-light: #8b0000;
+  --color-accent-orange: #ff914d;
+  --color-accent-cream: #fdf2e3;
+  --color-accent-pink: #eb94a3;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
