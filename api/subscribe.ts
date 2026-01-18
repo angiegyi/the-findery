@@ -15,8 +15,8 @@ export default async function handler(
     return res.status(400).json({ error: 'Email is required' });
   }
 
-  const beehivApiKey = process.env.BEEHIV_API_KEY;
-  const beehivPublicationId = process.env.BEEHIV_PUBLICATION_ID;
+  const beehivApiKey = process.env.BEEHIV_API_KEY || process.env.REACT_APP_BEEHIV_API_KEY;
+  const beehivPublicationId = process.env.BEEHIV_PUBLICATION_ID || process.env.REACT_APP_BEEHIV_PUBLICATION_ID;
 
   if (!beehivApiKey || !beehivPublicationId) {
     console.error('Missing Beehiiv configuration');
