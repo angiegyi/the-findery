@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-import logo from "../../assets/images/FinderyLogo.png";
 import { supabase } from "../../lib/supabase";
 
 const Waitlist: React.FC = () => {
@@ -79,12 +78,10 @@ const Waitlist: React.FC = () => {
 
 	return (
 		<div className="flex items-center justify-center min-h-screen px-4 polkadot-background bg-accent-cream">
-			<div className="w-full max-w-md text-center">
-				<img
-					src={logo}
-					alt="The Findery"
-					className="w-full max-w-sm mx-auto mb-1"
-				/>
+			<div className="w-full max-w-2xl text-center">
+				<h1 className="mb-6 text-5xl font-bold uppercase text-primary md:text-6xl lg:text-7xl">
+					THE FINDERY
+				</h1>
 
 				<p className="mb-8 text-xl font-bold text-amber-700 md:text-2xl">
 					Coming Soon
