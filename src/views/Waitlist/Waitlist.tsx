@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { Footer } from "../../components";
 import { supabase } from "../../lib/supabase";
 
 const Waitlist: React.FC = () => {
@@ -77,8 +78,9 @@ const Waitlist: React.FC = () => {
 	};
 
 	return (
-		<div className="flex items-center justify-center min-h-screen px-4 polkadot-background bg-accent-cream">
-			<div className="w-full max-w-2xl text-center">
+		<div className="flex flex-col min-h-screen px-4 polkadot-background bg-accent-cream">
+			<div className="flex items-center justify-center flex-1">
+				<div className="w-full max-w-2xl text-center">
 				<h1 className="mb-6 text-5xl font-bold uppercase text-primary md:text-6xl lg:text-7xl">
 					THE FINDERY
 				</h1>
@@ -140,7 +142,9 @@ const Waitlist: React.FC = () => {
 						)}
 					</form>
 				)}
+				</div>
 			</div>
+			<Footer />
 		</div>
 	);
 };
