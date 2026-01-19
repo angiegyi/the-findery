@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import { Footer, Header } from "../../components";
 
@@ -13,7 +12,6 @@ interface SavedList {
 
 const Profile: React.FC = () => {
 	const { user } = useAuth();
-	const navigate = useNavigate();
 	const [savedLists, setSavedLists] = useState<SavedList[]>([]);
 	const [loading, setLoading] = useState(true);
 
