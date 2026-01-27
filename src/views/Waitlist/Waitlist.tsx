@@ -78,7 +78,7 @@ const Waitlist: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-dvh bg-primary">
+		<div className="flex flex-col h-screen bg-primary">
 			{/* Header */}
 			<header className="border-b border-mauve">
 				<div className="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
