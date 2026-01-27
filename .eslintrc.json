@@ -11,7 +11,9 @@
     "react/jsx-no-undef": "error",
     "react/no-direct-mutation-state": "error",
     "react/no-deprecated": "warn",
-    "react/no-unescaped-entities": "warn",
+    "react/no-unescaped-entities": ["warn", {
+      "forbid": [">", "}"]
+    }],
     "react/require-render-return": "error",
     "react/self-closing-comp": ["warn", {
       "component": true,

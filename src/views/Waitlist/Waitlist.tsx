@@ -103,8 +103,7 @@ const Waitlist: React.FC = () => {
 					</h2>
 
 					<p className="mb-12 text-lg text-[#EBCECE] md:text-xl">
-						Discover Australia's best emerging fashion brands. Join our waitlist
-						to be the first to know when we launch.
+						{`Discover Australia's best emerging fashion brands. Join our waitlist to be the first to know when we launch.`}
 					</p>
 
 					{/* Email Form */}
@@ -124,9 +123,9 @@ const Waitlist: React.FC = () => {
 								/>
 							</svg>
 							<h3 className="mb-2 text-lg font-semibold text-white">
-								You're on the list!
+								{`You're on the list!`}
 							</h3>
-							<p className="text-rose">We'll notify you when we launch.</p>
+							<p className="text-rose">{`We'll notify you when we launch.`}</p>
 						</div>
 					) : (
 						<form onSubmit={handleSubmit} className="mb-16 space-y-4">

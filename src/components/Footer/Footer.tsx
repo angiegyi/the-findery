@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 						>
 							Terms
 						</Link>
-						<button className="text-sm transition-colors text-rose hover:text-white">
+						<button type="button" className="text-sm transition-colors text-rose hover:text-white">
 							Contact
 						</button>
 					</div>
