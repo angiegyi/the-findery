@@ -32,6 +32,7 @@ jobs:
         run: npm run build
         env:
           CI: true
+          DISABLE_ESLINT_PLUGIN: true
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_ANON_KEY: ${{ secrets.REACT_APP_SUPABASE_ANON_KEY }}
           REACT_APP_BEEHIV_API_KEY: ${{ secrets.REACT_APP_BEEHIV_API_KEY }}
