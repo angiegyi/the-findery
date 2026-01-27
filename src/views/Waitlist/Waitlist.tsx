@@ -102,7 +102,7 @@ const Waitlist: React.FC = () => {
 						THE FINDERY
 					</h2>
 
-					<p className="mb-12 text-lg text-light-rose md:text-xl">
+					<p className="mb-12 text-lg text-[#EBCECE] md:text-xl">
 						Discover Australia's best emerging fashion brands. Join our waitlist
 						to be the first to know when we launch.
 					</p>
@@ -136,7 +136,7 @@ const Waitlist: React.FC = () => {
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
 									placeholder="Enter your email address"
-									className="flex-1 px-6 py-4 text-white bg-transparent border outline-none placeholder-rose border-rose focus:border-white text-center sm:text-left"
+									className="flex-1 px-6 py-4 text-center text-white bg-transparent border outline-none placeholder-rose border-rose focus:border-white sm:text-left"
 									disabled={status === "loading"}
 									required
 								/>
