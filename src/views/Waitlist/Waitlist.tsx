@@ -78,7 +78,7 @@ const Waitlist: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen bg-primary">
+		<div className="flex flex-col min-h-dvh bg-primary">
 			{/* Header */}
 			<header className="border-b border-mauve">
 				<div className="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -129,7 +129,7 @@ const Waitlist: React.FC = () => {
 						</div>
 					) : (
 						<form onSubmit={handleSubmit} className="mb-16 space-y-4">
-							<div className="flex flex-col max-w-xl gap-0 mx-auto sm:flex-row">
+							<div className="flex flex-col max-w-xl gap-3 mx-auto sm:flex-row sm:gap-0">
 								<input
 									type="email"
 									value={email}
