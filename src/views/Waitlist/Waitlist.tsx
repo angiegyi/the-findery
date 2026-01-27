@@ -78,15 +78,15 @@ const Waitlist: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen bg-[#6F0000]">
+		<div className="flex flex-col min-h-screen bg-primary">
 			{/* Header */}
-			<header className="border-b border-[#C27F7F]">
+			<header className="border-b border-mauve">
 				<div className="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between">
 						<h1 className="text-2xl font-bold tracking-wider text-white uppercase md:text-3xl">
 							THE FINDERY
 						</h1>
-						<p className="text-sm text-[#D4B5B5]">Est. 2026</p>
+						<p className="text-sm text-rose">Est. 2026</p>
 					</div>
 				</div>
 			</header>
@@ -94,7 +94,7 @@ const Waitlist: React.FC = () => {
 			{/* Main Content */}
 			<div className="flex items-center justify-center flex-1 px-4">
 				<div className="w-full max-w-2xl text-center">
-					<p className="mb-4 text-sm tracking-widest text-[#D4B5B5] uppercase">
+					<p className="mb-4 text-sm tracking-widest uppercase text-rose">
 						Coming Soon
 					</p>
 
@@ -102,7 +102,7 @@ const Waitlist: React.FC = () => {
 						THE FINDERY
 					</h2>
 
-					<p className="mb-12 text-lg text-[#EDC3C3] md:text-xl">
+					<p className="mb-12 text-lg text-light-rose md:text-xl">
 						Discover Australia's best emerging fashion brands. Join our waitlist
 						to be the first to know when we launch.
 					</p>
@@ -126,7 +126,7 @@ const Waitlist: React.FC = () => {
 							<h3 className="mb-2 text-lg font-semibold text-white">
 								You're on the list!
 							</h3>
-							<p className="text-[#D4B5B5]">We'll notify you when we launch.</p>
+							<p className="text-rose">We'll notify you when we launch.</p>
 						</div>
 					) : (
 						<form onSubmit={handleSubmit} className="mb-16 space-y-4">
@@ -136,14 +136,14 @@ const Waitlist: React.FC = () => {
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
 									placeholder="Enter your email address"
-									className="flex-1 px-6 py-4 text-white placeholder-[#D4B5B5] bg-transparent border border-[#D4B5B5] outline-none focus:border-white text-center sm:text-left"
+									className="flex-1 px-6 py-4 text-white bg-transparent border outline-none placeholder-rose border-rose focus:border-white text-center sm:text-left"
 									disabled={status === "loading"}
 									required
 								/>
 								<button
 									type="submit"
 									disabled={status === "loading"}
-									className="px-8 py-4 font-semibold text-[#6F0000] transition-colors bg-[#E5DDD5] hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+									className="px-8 py-4 font-semibold transition-colors text-primary bg-beige hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
 								>
 									{status === "loading" ? "Joining..." : "Join Waitlist"}
 								</button>

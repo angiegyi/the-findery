@@ -17,6 +17,10 @@ module.exports = {
 					cream: "#fdf2e3", // Soft cream
 					pink: "#eb94a3", // Dusty pink
 				},
+				beige: "#E5DDD5", // Button and neutral backgrounds
+				rose: "#D4B5B5", // Secondary text and borders
+				mauve: "#C27F7F", // Muted border lines
+				"light-rose": "#EDC3C3", // Description text
 			},
 		},
 	},
