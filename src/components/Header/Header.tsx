@@ -34,13 +34,15 @@ const Header: React.FC<HeaderProps> = ({ activePage }) => {
 						</h1>
 						<nav className="ml-10 space-x-4">
 							<button
+								type="button"
 								onClick={() => navigate("/search")}
 								className={getNavButtonClass("search")}
 							>
 								Search
 							</button>
-							<button className={getNavButtonClass("boards")}>Boards</button>
+							<button type="button" className={getNavButtonClass("boards")}>Boards</button>
 							<button
+								type="button"
 								onClick={() => navigate("/profile")}
 								className={getNavButtonClass("profile")}
 							>
@@ -49,6 +51,7 @@ const Header: React.FC<HeaderProps> = ({ activePage }) => {
 						</nav>
 					</div>
 					<button
+						type="button"
 						onClick={handleSignOut}
 						className="text-sm font-medium text-primary hover:text-accent-orange"
 					>

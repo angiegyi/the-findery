@@ -51,7 +51,7 @@ const Profile: React.FC = () => {
 	if (loading) {
 		return (
 			<div className="flex items-center justify-center min-h-screen bg-accent-cream">
-				<div className="w-12 h-12 border-b-2 rounded-full animate-spin border-primary"></div>
+				<div className="w-12 h-12 border-b-2 rounded-full animate-spin border-primary" />
 			</div>
 		);
 	}
@@ -106,7 +106,7 @@ const Profile: React.FC = () => {
 						<h3 className="text-2xl font-semibold text-primary">
 							Your Saved Lists
 						</h3>
-						<button className="px-4 py-2 text-sm font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange">
+						<button type="button" className="px-4 py-2 text-sm font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange">
 							Create New List
 						</button>
 					</div>
@@ -120,7 +120,7 @@ const Profile: React.FC = () => {
 							<p className="mb-6 text-gray-600">
 								Start creating lists to save your favorite finds
 							</p>
-							<button className="px-6 py-3 font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange">
+							<button type="button" className="px-6 py-3 font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange">
 								Create Your First List
 							</button>
 						</div>

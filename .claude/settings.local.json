@@ -12,7 +12,8 @@
       "Bash(nvm install:*)",
       "Bash(vercel projects:*)",
       "Bash(node --version:*)",
-      "Bash(vercel whoami:*)"
+      "Bash(vercel whoami:*)",
+      "Bash(npm run lint)"
     ]
   }
 }

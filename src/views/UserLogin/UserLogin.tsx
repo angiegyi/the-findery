@@ -29,14 +29,16 @@ const UserLogin: React.FC = () => {
 				password: data.password,
 			});
 
-			if (error) throw error;
+			if (error) {
+				throw error;
+			}
 
 			// Only navigate if we have a valid session
 			if (authData?.session) {
 				navigate("/profile");
 			}
-		} catch (err: any) {
-			setError(err.message);
+		} catch (err: unknown) {
+			setError((err as Error).message);
 		} finally {
 			setLoading(false);
 		}
@@ -55,7 +57,9 @@ const UserLogin: React.FC = () => {
 				},
 			});
 
-			if (error) throw error;
+			if (error) {
+				throw error;
+			}
 
 			// Check if email confirmation is required
 			if (authData?.user && !authData.session) {
@@ -68,8 +72,8 @@ const UserLogin: React.FC = () => {
 			if (authData?.session) {
 				navigate("/profile");
 			}
-		} catch (err: any) {
-			setError(err.message);
+		} catch (err: unknown) {
+			setError((err as Error).message);
 		} finally {
 			setLoading(false);
 		}
@@ -87,9 +91,11 @@ const UserLogin: React.FC = () => {
 				},
 			});
 
-			if (error) throw error;
-		} catch (err: any) {
-			setError(err.message);
+			if (error) {
+				throw error;
+			}
+		} catch (err: unknown) {
+			setError((err as Error).message);
 			setLoading(false);
 		}
 	};

@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
 
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  category: string;
+  status: string;
+}
+
 const SupabaseTest: React.FC = () => {
-  const [products, setProducts] = useState<any[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -15,13 +23,10 @@ const SupabaseTest: React.FC = () => {
           .select('*')
           .limit(10);
 
-        console.log('Products query result:', { data, error });
-
         if (error) {
           setError(error.message);
         } else {
           setProducts(data || []);
-          console.log('Products found:', data?.length || 0);
         }
       } catch (err) {
         console.error('Fetch error:', err);
@@ -37,7 +42,7 @@ const SupabaseTest: React.FC = () => {
   if (loading) {
     return (
       <div className="p-4 bg-blue-50 rounded-lg">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto" />
         <p className="text-center mt-2 text-blue-600">Loading products...</p>
       </div>
     );

@@ -14,6 +14,14 @@ interface SearchFilters {
 	newArrivals: boolean;
 }
 
+interface SearchResult {
+	id: string;
+	name: string;
+	description: string;
+	confidence: number;
+	matchReason: string;
+}
+
 const Search: React.FC = () => {
 	const [searchMode, setSearchMode] = useState<SearchMode>("pinterest");
 	const [pinterestUrl, setPinterestUrl] = useState("");
@@ -25,7 +33,7 @@ const Search: React.FC = () => {
 		newArrivals: false,
 	});
 	const [isSearching, setIsSearching] = useState(false);
-	const [searchResults, setSearchResults] = useState<any[]>([]);
+	const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
 	const [error, setError] = useState<string | null>(null);
 
 	const handlePinterestSearch = async () => {
@@ -74,10 +82,10 @@ const Search: React.FC = () => {
 
 			// 3. Display suggested brands
 			setSearchResults(data.suggestedBrands || []);
-		} catch (error: any) {
+		} catch (error: unknown) {
 			console.error("Pinterest search error:", error);
 			setError(
-				error.message ||
+				(error as Error).message ||
 					"An error occurred while analyzing the Pinterest board. Please try again."
 			);
 		} finally {
@@ -92,12 +100,10 @@ const Search: React.FC = () => {
 			// 1. Send query + filters to AI endpoint
 			// 2. AI generates search results based on query
 			// 3. Filter by Australian brands
-			console.log("AI Search:", aiSearchQuery, filters);
-
 			// Placeholder for now
 			await new Promise((resolve) => setTimeout(resolve, 2000));
 			setSearchResults([]);
-		} catch (error) {
+		} catch (error: unknown) {
 			console.error("AI search error:", error);
 		} finally {
 			setIsSearching(false);
@@ -139,7 +145,7 @@ const Search: React.FC = () => {
 
 				{/* Search Mode Toggle */}
 				<div className="flex p-1 mb-8 bg-white rounded-lg shadow-sm w-fit">
-					<button
+					<button type="button"
 						onClick={() => setSearchMode("pinterest")}
 						className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${
 							searchMode === "pinterest"
@@ -149,7 +155,7 @@ const Search: React.FC = () => {
 					>
 						Pinterest Board
 					</button>
-					<button
+					<button type="button"
 						onClick={() => setSearchMode("ai")}
 						className={`px-6 py-2 text-sm font-medium rounded-md transition-colors ${
 							searchMode === "ai"
@@ -194,7 +200,7 @@ const Search: React.FC = () => {
 												className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
 											/>
 										</div>
-										<button
+										<button type="button"
 											onClick={handlePinterestSearch}
 											disabled={!pinterestUrl || isSearching}
 											className="w-full px-6 py-3 font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange disabled:opacity-50 disabled:cursor-not-allowed"
@@ -225,7 +231,7 @@ const Search: React.FC = () => {
 												className="block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm resize-none focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
 											/>
 										</div>
-										<button
+										<button type="button"
 											onClick={handleAiSearch}
 											disabled={!aiSearchQuery || isSearching}
 											className="w-full px-6 py-3 font-medium text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange disabled:opacity-50 disabled:cursor-not-allowed"
@@ -276,7 +282,7 @@ const Search: React.FC = () => {
 
 						{isSearching && (
 							<div className="p-12 mt-8 text-center bg-white rounded-lg shadow-sm">
-								<div className="inline-block w-12 h-12 mb-4 border-b-2 rounded-full animate-spin border-primary"></div>
+								<div className="inline-block w-12 h-12 mb-4 border-b-2 rounded-full animate-spin border-primary" />
 								<p className="text-gray-600">
 									{searchMode === "pinterest"
 										? "Analyzing your Pinterest board..."
