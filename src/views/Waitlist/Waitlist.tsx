@@ -78,72 +78,85 @@ const Waitlist: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col min-h-screen px-4 polkadot-background bg-accent-cream">
-			<div className="flex items-center justify-center flex-1">
-				<div className="w-full max-w-2xl text-center">
-				<h1 className="mb-6 text-5xl font-bold uppercase text-primary md:text-6xl lg:text-7xl">
-					THE FINDERY
-				</h1>
-
-				<p className="mb-8 text-xl font-bold text-amber-700 md:text-2xl">
-					Coming Soon
-				</p>
-
-				{/* Description */}
-				<p className="mb-8 font-medium text-primary">
-					Discover Australia's best emerging fashion brands. Join our waitlist
-					to be the first to know when we launch.
-				</p>
-
-				{/* Email Form */}
-				{status === "success" ? (
-					<div className="p-6 border border-green-200 rounded-lg bg-green-50">
-						<svg
-							className="w-12 h-12 mx-auto mb-3 text-green-500"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth={2}
-								d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-							/>
-						</svg>
-						<h3 className="mb-2 text-lg font-semibold text-green-900">
-							You're on the list!
-						</h3>
-						<p className="text-green-700">We'll notify you when we launch.</p>
+		<div className="flex flex-col min-h-screen bg-[#6F0000]">
+			{/* Header */}
+			<header className="border-b border-[#C27F7F]">
+				<div className="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+					<div className="flex items-center justify-between">
+						<h1 className="text-2xl font-bold tracking-wider text-white uppercase md:text-3xl">
+							THE FINDERY
+						</h1>
+						<p className="text-sm text-[#D4B5B5]">Est. 2026</p>
 					</div>
-				) : (
-					<form onSubmit={handleSubmit} className="space-y-4">
-						<div className="flex flex-col gap-3 sm:flex-row">
-							<input
-								type="email"
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-								placeholder="Enter your email"
-								className="flex-1 px-4 py-3 border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-								disabled={status === "loading"}
-								required
-							/>
-							<button
-								type="submit"
-								disabled={status === "loading"}
-								className="px-6 py-3 font-bold text-white transition-colors rounded-lg bg-primary hover:bg-accent-orange focus:ring-2 focus:bg-accent-orange focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
-							>
-								{status === "loading" ? "Joining..." : "Join Waitlist"}
-							</button>
-						</div>
+				</div>
+			</header>
 
-						{status === "error" && (
-							<p className="text-sm text-left text-red-600">{errorMessage}</p>
-						)}
-					</form>
-				)}
+			{/* Main Content */}
+			<div className="flex items-center justify-center flex-1 px-4">
+				<div className="w-full max-w-2xl text-center">
+					<p className="mb-4 text-sm tracking-widest text-[#D4B5B5] uppercase">
+						Coming Soon
+					</p>
+
+					<h2 className="mb-8 text-5xl font-bold tracking-wider text-white uppercase md:text-6xl lg:text-7xl">
+						THE FINDERY
+					</h2>
+
+					<p className="mb-12 text-lg text-[#EDC3C3] md:text-xl">
+						Discover Australia's best emerging fashion brands. Join our waitlist
+						to be the first to know when we launch.
+					</p>
+
+					{/* Email Form */}
+					{status === "success" ? (
+						<div className="p-6 border border-green-400 rounded-lg bg-green-900/30">
+							<svg
+								className="w-12 h-12 mx-auto mb-3 text-green-400"
+								fill="none"
+								stroke="currentColor"
+								viewBox="0 0 24 24"
+							>
+								<path
+									strokeLinecap="round"
+									strokeLinejoin="round"
+									strokeWidth={2}
+									d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+								/>
+							</svg>
+							<h3 className="mb-2 text-lg font-semibold text-white">
+								You're on the list!
+							</h3>
+							<p className="text-[#D4B5B5]">We'll notify you when we launch.</p>
+						</div>
+					) : (
+						<form onSubmit={handleSubmit} className="mb-16 space-y-4">
+							<div className="flex flex-col max-w-xl gap-0 mx-auto sm:flex-row">
+								<input
+									type="email"
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
+									placeholder="Enter your email address"
+									className="flex-1 px-6 py-4 text-white placeholder-[#D4B5B5] bg-transparent border border-[#D4B5B5] outline-none focus:border-white text-center sm:text-left"
+									disabled={status === "loading"}
+									required
+								/>
+								<button
+									type="submit"
+									disabled={status === "loading"}
+									className="px-8 py-4 font-semibold text-[#6F0000] transition-colors bg-[#E5DDD5] hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed"
+								>
+									{status === "loading" ? "Joining..." : "Join Waitlist"}
+								</button>
+							</div>
+
+							{status === "error" && (
+								<p className="text-sm text-red-400">{errorMessage}</p>
+							)}
+						</form>
+					)}
 				</div>
 			</div>
+
 			<Footer />
 		</div>
 	);
