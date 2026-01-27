@@ -25,15 +25,11 @@ jobs:
         run: npm ci
 
       - name: Run linting
-        run: npm run lint || echo "No lint script found, skipping..."
-        continue-on-error: false
-
-      - name: Build
-        run: react-scripts build
+        run: npm run lint
         continue-on-error: false
 
       - name: Type check
-        run: npx tsc --noEmit || echo "TypeScript check passed"
+        run: npx tsc --noEmit
         continue-on-error: false
 
       - name: Build application

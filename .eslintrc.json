@@ -1,0 +1,68 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest"
+  ],
+  "rules": {
+    // React-specific rules
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-undef": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-deprecated": "warn",
+    "react/no-unescaped-entities": "warn",
+    "react/require-render-return": "error",
+    "react/self-closing-comp": ["warn", {
+      "component": true,
+      "html": true
+    }],
+    "react/jsx-boolean-value": ["warn", "never"],
+    "react/jsx-curly-brace-presence": ["warn", {
+      "props": "never",
+      "children": "never"
+    }],
+    "react/jsx-fragments": ["warn", "syntax"],
+    "react/jsx-no-useless-fragment": "warn",
+    "react/jsx-pascal-case": ["warn", {
+      "allowAllCaps": false
+    }],
+    "react/no-array-index-key": "warn",
+    "react/no-danger": "warn",
+    "react/no-unused-state": "warn",
+    "react/prefer-stateless-function": "warn",
+    "react/button-has-type": "warn",
+    "react/no-unstable-nested-components": ["warn", {
+      "allowAsProps": true
+    }],
+
+    // React Hooks rules
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+
+    // General best practices
+    "no-console": ["warn", {
+      "allow": ["warn", "error"]
+    }],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn", {
+      "argsIgnorePattern": "^_",
+      "varsIgnorePattern": "^_"
+    }],
+    "prefer-const": "warn",
+    "no-var": "error",
+    "eqeqeq": ["warn", "always"],
+    "curly": ["warn", "all"],
+    "no-multiple-empty-lines": ["warn", {
+      "max": 1,
+      "maxEOF": 0
+    }],
+
+    // TypeScript-specific
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/consistent-type-imports": ["warn", {
+      "prefer": "type-imports"
+    }]
+  }
+}
